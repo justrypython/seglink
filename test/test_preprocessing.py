@@ -139,7 +139,7 @@ def main(_):
                             orbox = orbboxes[idx, :]
                             import cv2
                             rect = ((orbox[0], orbox[1]), (orbox[2], orbox[3]), orbox[4])
-                            box = cv2.cv.BoxPoints(rect)
+                            box = cv2.boxPoints(rect)
                             box = np.int0(box)
                             cv2.drawContours(I_orbbox, [box], 0, util.img.COLOR_RGB_RED, 1)
                         
@@ -147,10 +147,10 @@ def main(_):
                         draw_xys();
                         draw_orbbox();
                         
-                    print util.sit(I_bbox)
-                    print util.sit(I_xys)
-                    print util.sit(I_orbbox)
-                    print 'check the images and make sure that bboxes in difference colors are the same.'
+                    print (util.sit(I_bbox))
+                    print (util.sit(I_xys))
+                    print (util.sit(I_orbbox))
+                    print ('check the images and make sure that bboxes in difference colors are the same.')
                 coord.request_stop()
                 coord.join(threads)
 if __name__ == '__main__':

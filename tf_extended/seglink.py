@@ -805,7 +805,7 @@ def bboxes_to_xys(bboxes, image_shape):
     xys = np.zeros((len(bboxes), 8))
     for bbox_idx, bbox in enumerate(bboxes):
         bbox = ((bbox[0], bbox[1]), (bbox[2], bbox[3]), bbox[4])
-        points = cv2.cv.BoxPoints(bbox)
+        points = cv2.boxPoints(bbox)
         points = np.int0(points)
         for i_xy, (x, y) in enumerate(points):
             x = get_valid_x(x)
